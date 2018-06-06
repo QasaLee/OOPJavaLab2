@@ -8,7 +8,6 @@ public class KnnNumber {
     public static void main(String[] args) throws IOException {
         ArrayList<Image> trainingImages = new ArrayList<>();
         ArrayList<Image> testingImages = new ArrayList<>();
-
         // MARK: - Load Files
         try {
             System.out.println("Loading training data...");
@@ -46,8 +45,6 @@ public class KnnNumber {
             System.out.println();
             i++;
         }
-
         System.out.println("Accuracy: " + (1 - (double) errors / testingImages.size()) * 100 + "%");
-
     }
 }
