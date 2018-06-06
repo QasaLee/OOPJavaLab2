@@ -26,7 +26,27 @@ public class DigitRecognizer {
         }
 
         // MARK: - Classifier
+        ImageClassifier imageClassifier = new ImageClassifier();
+        imageClassifier.setTrainingData(trainingImages);
 
+        int errors = 0;
+        int i = 1;
+
+        for (Image testingImage : testingImages) {
+            String predictedDigit = imageClassifier.predict(testingImage);
+
+            System.out.print("(" + i + " / " + testingImages.size() + ") Predicted " + predictedDigit + ", was " + testingImage.getTag());
+
+            if (!testingImage.getTag().equals(predictedDigit)) {
+                errors++;
+                System.out.print(" [Error]");
+            }
+
+            System.out.println();
+            i++;
+        }
+
+        System.out.println("Accuracy: " + (1 - (double) errors / testingImages.size()) * 100 + "%");
 
     }
 }

@@ -59,4 +59,5 @@ public class ImageClassifier extends KNearestClassifier<Image> {
 
         return null;
     }
+
 }
