@@ -5,18 +5,16 @@ import java.util.ArrayList;
 
 public class DatasetImageLoader {
 
-    // MARK: - DataInputStream
-    private DataInputStream datasetInputStream;
+    private File folder;
+    private File[] listOfFiles;
 
-    File folder = new File("./src/lby/lab05/digits/trainingDigits");
-    File[] listOfFiles = folder.listFiles();
+    public DatasetImageLoader(String pathname) {
+        folder = new File(pathname);
+        listOfFiles = folder.listFiles();
+    }
 
     public ArrayList<Image> loadImages() throws IOException {
-
         ArrayList<Image> images = new ArrayList<>();
-
-        System.out.println(folder.getName()); // DEBUG
-
         for (File file: listOfFiles) {
             if (file.isFile()) {
                 // Get Tag
