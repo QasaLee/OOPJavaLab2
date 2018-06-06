@@ -9,10 +9,6 @@ public class ImageClassifier extends KNearestClassifier<Image> {
     public ImageClassifier(int k) {
         super(k);
     }
-    // Default one
-    public ImageClassifier() {
-        super(3);
-    }
 
     // MARK: - Implement Methods from Classifier interface
     @Override
@@ -29,16 +25,14 @@ public class ImageClassifier extends KNearestClassifier<Image> {
         distances.sort(null); // A null value indicates that the elements' natural ordering should be used
 
         // MARK: - Experiment to find optimized K
-
+        distances.removeAll(distances.subList(getK(), distances.size()));
 //        distances.removeAll(distances.subList(9, distances.size())); // K == 9
 //        distances.removeAll(distances.subList(8, distances.size())); // K == 8
 //        distances.removeAll(distances.subList(7, distances.size())); // K == 7
 //        distances.removeAll(distances.subList(6, distances.size())); // K == 6
 //        distances.removeAll(distances.subList(5, distances.size())); // K == 5
 //        distances.removeAll(distances.subList(4, distances.size())); // K == 4
-        distances.removeAll(distances.subList(3, distances.size())); // K == 3
-//        distances.removeAll(distances.subList(2, distances.size())); // K == 2
-//        distances.removeAll(distances.subList(1, distances.size())); // K == 1
+//        distances.removeAll(distances.subList(3, distances.size())); // K == 3
 
         HashMap<String, Integer> tagCount = new HashMap<>();
 

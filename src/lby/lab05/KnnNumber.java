@@ -26,7 +26,7 @@ public class KnnNumber {
         }
 
         // MARK: - Classifier
-        ImageClassifier imageClassifier = new ImageClassifier();
+        ImageClassifier imageClassifier = new ImageClassifier(3);
         imageClassifier.setTrainingData(trainingImages);
 
         // MARK: - Test
