@@ -28,7 +28,8 @@ public class ImageClassifier extends KNearestClassifier<Image> {
 
         distances.sort(null); // A null value indicates that the elements' natural ordering should be used
 
-        // TODO: - Need to figure out
+        // MARK: - Experiment to find optimized K
+
 //        distances.removeAll(distances.subList(9, distances.size())); // K == 9
 //        distances.removeAll(distances.subList(8, distances.size())); // K == 8
 //        distances.removeAll(distances.subList(7, distances.size())); // K == 7
