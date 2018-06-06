@@ -1,9 +1,6 @@
 package lby.lab05;
 
-import java.io.DataInputStream;
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
 import java.util.ArrayList;
 
 public class DatasetImageLoader {
@@ -24,28 +21,20 @@ public class DatasetImageLoader {
             if (file.isFile()) {
                 // Get Tag
                 String tag = file.getName().substring(0, 1);
-                System.out.println(tag); // DEBUG
                 Image image = new Image(32, 32, tag);
-
-                // DEBUG
-                FileReader fr =
-                        new FileReader(file);
-
-                int i;
-                while ((i=fr.read()) != -1)
-                    System.out.print((char) i);
-                //
-
+                BufferedReader in = new BufferedReader(new FileReader(file));
                 for (int y = 0; y < 32; y++) {
+                    String s = new String();
+                    s = in.readLine();
                     for (int x = 0; x < 32; x++) {
-                        int rgb = fr.read();
+                        char c = s.charAt(x);
+                        int rgb = c == '0' ? 0 : 1;
                         image.setColor(x, y, rgb);
                     }
                 }
                 images.add(image);
             }
         }
-
         return images;
     }
 
