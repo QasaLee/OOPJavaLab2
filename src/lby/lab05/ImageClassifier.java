@@ -29,7 +29,15 @@ public class ImageClassifier extends KNearestClassifier<Image> {
         distances.sort(null); // A null value indicates that the elements' natural ordering should be used
 
         // TODO: - Need to figure out
-        distances.removeAll(distances.subList(getK(), distances.size()));
+//        distances.removeAll(distances.subList(9, distances.size())); // K == 9
+//        distances.removeAll(distances.subList(8, distances.size())); // K == 8
+//        distances.removeAll(distances.subList(7, distances.size())); // K == 7
+//        distances.removeAll(distances.subList(6, distances.size())); // K == 6
+//        distances.removeAll(distances.subList(5, distances.size())); // K == 5
+//        distances.removeAll(distances.subList(4, distances.size())); // K == 4
+//        distances.removeAll(distances.subList(3, distances.size())); // K == 3
+//        distances.removeAll(distances.subList(2, distances.size())); // K == 2
+        distances.removeAll(distances.subList(1, distances.size())); // K == 1
 
         HashMap<String, Integer> tagCount = new HashMap<>();
 
