@@ -35,9 +35,9 @@ public class ImageClassifier extends KNearestClassifier<Image> {
 //        distances.removeAll(distances.subList(6, distances.size())); // K == 6
 //        distances.removeAll(distances.subList(5, distances.size())); // K == 5
 //        distances.removeAll(distances.subList(4, distances.size())); // K == 4
-//        distances.removeAll(distances.subList(3, distances.size())); // K == 3
+        distances.removeAll(distances.subList(3, distances.size())); // K == 3
 //        distances.removeAll(distances.subList(2, distances.size())); // K == 2
-        distances.removeAll(distances.subList(1, distances.size())); // K == 1
+//        distances.removeAll(distances.subList(1, distances.size())); // K == 1
 
         HashMap<String, Integer> tagCount = new HashMap<>();
 
