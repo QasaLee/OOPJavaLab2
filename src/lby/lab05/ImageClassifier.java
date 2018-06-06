@@ -1,6 +1,7 @@
 package lby.lab05;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 public class ImageClassifier extends KNearestClassifier<Image> {
 
@@ -23,6 +24,37 @@ public class ImageClassifier extends KNearestClassifier<Image> {
             Distance distance = new Distance(trainingImage.getTag(), computedDistance);
 
             distances.add(distance);
+        }
+
+        distances.sort(null); // A null value indicates that the elements' natural ordering should be used
+
+        // TODO: - Need to figure out
+        distances.removeAll(distances.subList(getK(), distances.size()));
+
+        HashMap<String, Integer> tagCount = new HashMap<>();
+
+        for (Distance distance : distances) {
+            tagCount.putIfAbsent(distance.getTag(), 0);
+            tagCount.put(distance.getTag(), tagCount.get(distance.getTag()) + 1);
+        }
+
+        return getMostCommonTag(tagCount);
+    }
+
+    // MARK: - Helper Method
+    private String getMostCommonTag(HashMap<String, Integer> map) {
+        Integer maxValue = 0;
+
+        for (String tag : map.keySet()) {
+            if (map.get(tag) > maxValue) {
+                maxValue = map.get(tag);
+            }
+        }
+
+        for (String tag : map.keySet()) {
+            if (map.get(tag).equals(maxValue)) {
+                return tag;
+            }
         }
 
         return null;

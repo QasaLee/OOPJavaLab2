@@ -1,0 +1,32 @@
+package lby.lab05;
+
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.ArrayList;
+
+public class DigitRecognizer {
+    public static void main(String[] args) throws IOException {
+        ArrayList<Image> trainingImages = new ArrayList<>();
+        ArrayList<Image> testingImages = new ArrayList<>();
+
+        // MARK: - Load Files
+        try {
+            System.out.println("Loading training data...");
+            DatasetImageLoader trainingImageLoader = new DatasetImageLoader("./src/lby/lab05/digits/trainingDigits");
+            trainingImages = trainingImageLoader.loadImages();
+
+            System.out.println("Loading testing data...");
+            DatasetImageLoader testingImageLoader = new DatasetImageLoader("./src/lby/lab05/digits/testDigits");
+            testingImages = testingImageLoader.loadImages();
+
+        } catch (FileNotFoundException e) {
+            System.out.println("The specified file doesn't exist!");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // MARK: - Classifier
+
+
+    }
+}
