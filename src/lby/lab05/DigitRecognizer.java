@@ -29,17 +29,18 @@ public class DigitRecognizer {
         ImageClassifier imageClassifier = new ImageClassifier();
         imageClassifier.setTrainingData(trainingImages);
 
+        // MARK: - Test
         int errors = 0;
         int i = 1;
 
         for (Image testingImage : testingImages) {
             String predictedDigit = imageClassifier.predict(testingImage);
 
-            System.out.print("(" + i + " / " + testingImages.size() + ") Predicted " + predictedDigit + ", was " + testingImage.getTag());
+            System.out.print("(" + i + " out of " + testingImages.size() + ") Predicted " + predictedDigit + ", was " + testingImage.getTag());
 
             if (!testingImage.getTag().equals(predictedDigit)) {
                 errors++;
-                System.out.print(" [Error]");
+                System.out.print(", so it was an Error!");
             }
 
             System.out.println();
